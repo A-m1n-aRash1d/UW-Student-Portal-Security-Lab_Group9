@@ -29,7 +29,7 @@ $("loginForm").addEventListener("submit", (e) => {
   const pw = $("password").value;
   const u = USERS.find((x) => x.email === email && x.password === pw);
   if (!u) {
-    $("loginMsg").innerHTML = "Login failed for " + email;
+   $("loginMsg").textContent = "Login failed for " + email;
     return;
   }
   localStorage.setItem("session", JSON.stringify({ id: u.id, name: u.name, role: u.role, cnic: u.cnic }));
@@ -41,9 +41,20 @@ $("loginForm").addEventListener("submit", (e) => {
 $("resultForm").addEventListener("submit", (e) => { e.preventDefault(); showResult($("rid").value); });
 
 function showResult(id) {
+  const s = getSession();
+  if (!s) return;
+
+  if (String(id) !== String(s.id) && s.role === "student") {
+    $("resultOut").textContent = "Access denied: you can only view your own result.";
+    return;
+  }
+
   const r = RESULTS[id];
   const u = USERS.find((x) => String(x.id) === String(id));
-  $("resultOut").textContent = r ? u.name + ": " + r.course + " = " + r.marks : "No result found.";
+
+  $("resultOut").textContent = r
+    ? u.name + ": " + r.course + " = " + r.marks
+    : "No result found.";
 }
 
 $("searchForm").addEventListener("submit", (e) => {
