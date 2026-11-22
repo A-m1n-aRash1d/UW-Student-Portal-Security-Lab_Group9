@@ -1,13 +1,22 @@
-// UW Student Portal - deliberately vulnerable training app. All data is fake.
-const API_KEY = "sk-live-uwportal-FAKE-4f9a8c71";
-const ADMIN_PASSWORD = "Admin@123";
+// UW Student Portal - training app. All data is fake.
+// No API keys or admin password are stored in this file any more.
 
+const PW_SALT = "uwsalt:";
+
+// Passwords are stored as salted SHA-256 hashes, never as plain text.
 const USERS = [
-  { id: 1001, name: "Ayesha Khan",    email: "ayesha@uw.test", password: "ayesha123", role: "student", cnic: "35202-1234567-1" },
-  { id: 1002, name: "Bilal Ahmed",    email: "bilal@uw.test",  password: "bilal123",  role: "student", cnic: "35202-7654321-9" },
-  { id: 2001, name: "Dr. Sana Malik", email: "sana@uw.test",   password: "teacher123", role: "teacher", cnic: "35202-1111111-2" },
-  { id: 9001, name: "Admin",          email: "admin@uw.test",  password: ADMIN_PASSWORD, role: "admin", cnic: "35202-9999999-3" }
+  { id: 1001, name: "Ayesha Khan",    email: "ayesha@uw.test", pwHash: "c9e4e3bdc9f1657bc62101bbd183a9755e94969fd864aecb764e63632d669859", role: "student", cnic: "35202-1234567-1" },
+  { id: 1002, name: "Bilal Ahmed",    email: "bilal@uw.test",  pwHash: "90ad5b70a0ef33f2bc2a1d474f4acb93aa5ee004cdb622147fe2bf920dccfdab", role: "student", cnic: "35202-7654321-9" },
+  { id: 2001, name: "Dr. Sana Malik", email: "sana@uw.test",   pwHash: "d57c090b30e6d6f273391a4e4255414fd959679615bedefbb2533cb936f0c38c", role: "teacher", cnic: "35202-1111111-2" },
+  { id: 9001, name: "Admin",          email: "admin@uw.test",  pwHash: "023cc8a1c8e6c17778e93921ae5c074f7aa8ba18b7b3bc65be2852a0fc851923", role: "admin",   cnic: "35202-9999999-3" }
 ];
+
+async function hashPassword(pw) {
+  const data = new TextEncoder().encode(PW_SALT + pw);
+  const buf = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 const RESULTS = {
   1001: { course: "CYS-331L", marks: 88 },
   1002: { course: "CYS-331L", marks: 54 },
@@ -23,13 +32,13 @@ function getSession() {
   return s ? JSON.parse(s) : null;
 }
 
-$("loginForm").addEventListener("submit", (e) => {
+$("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = $("email").value;
-  const pw = $("password").value;
-  const u = USERS.find((x) => x.email === email && x.password === pw);
+  const pwHash = await hashPassword($("password").value);
+  const u = USERS.find((x) => x.email === email && x.pwHash === pwHash);
   if (!u) {
-   $("loginMsg").textContent = "Login failed for " + email;
+    $("loginMsg").textContent = "Login failed for " + email;
     return;
   }
   localStorage.setItem("session", JSON.stringify({ id: u.id, name: u.name, role: u.role, cnic: u.cnic }));
@@ -61,7 +70,17 @@ $("searchForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const q = $("q").value;
   const hits = COURSES.filter((c) => c.toLowerCase().includes(q.toLowerCase()));
-  $("searchOut").innerHTML = hits.length ? hits.join("<br>") : "No courses match: " + q;
+  const out = $("searchOut");
+  out.textContent = "";
+  if (hits.length) {
+    hits.forEach((h) => {
+      const line = document.createElement("div");
+      line.textContent = h;
+      out.appendChild(line);
+    });
+  } else {
+    out.textContent = "No courses match: " + q;
+  }
 });
 
 $("logout").addEventListener("click", () => { localStorage.removeItem("session"); render(); });
