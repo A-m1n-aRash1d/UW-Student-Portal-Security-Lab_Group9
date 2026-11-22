@@ -28,8 +28,8 @@ const params = new URLSearchParams(location.search);
 const $ = (id) => document.getElementById(id);
 
 function getSession() {
-  const s = localStorage.getItem("session");
-  return s ? JSON.parse(s) : null;
+  const id = sessionStorage.getItem("uid");
+  return USERS.find((x) => String(x.id) === id) || null;
 }
 
 $("loginForm").addEventListener("submit", async (e) => {
@@ -41,7 +41,7 @@ $("loginForm").addEventListener("submit", async (e) => {
     $("loginMsg").textContent = "Login failed for " + email;
     return;
   }
-  localStorage.setItem("session", JSON.stringify({ id: u.id, name: u.name, role: u.role, cnic: u.cnic }));
+sessionStorage.setItem("uid", String(u.id));
   const next = params.get("next");
   if (next) { location.href = next; return; }
   render();
@@ -83,18 +83,31 @@ $("searchForm").addEventListener("submit", (e) => {
   }
 });
 
-$("logout").addEventListener("click", () => { localStorage.removeItem("session"); render(); });
+$("logout").addEventListener("click", () => { sessionStorage.removeItem("uid"); render(); });
 
 function render() {
   const s = getSession();
-  $("loginBox").classList.toggle("hidden", !!s);
-  $("dash").classList.toggle("hidden", !s);
-  if (!s) return;
-  $("welcome").innerHTML = "Welcome, " + (params.get("name") || s.name);
+  if (!s) {
+    $("loginBox").classList.remove("hidden");
+    $("dash").classList.add("hidden");
+    return;
+  }
+  $("loginBox").classList.add("hidden");
+  $("dash").classList.remove("hidden");
+  $("welcome").textContent = "Welcome, " + s.name;
   if (params.get("id")) showResult(params.get("id"));
   if (s.role === "admin") {
     $("admin").classList.remove("hidden");
-    $("userList").innerHTML = USERS.map((u) => "<li>" + u.name + " (" + u.role + ") CNIC " + u.cnic + "</li>").join("");
+    const out = $("userList");
+    out.textContent = "";
+    USERS.forEach((u) => {
+      const li = document.createElement("li");
+      const maskedCnic = u.cnic.substring(0, 5) + "-XXXXXXX-X"; 
+      li.textContent = u.name + " (" + u.role + ") CNIC " + maskedCnic;
+      out.appendChild(li);
+    });
+  } else {
+    $("admin").classList.add("hidden");
   }
 }
 render();
