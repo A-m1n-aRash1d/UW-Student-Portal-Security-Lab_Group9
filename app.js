@@ -41,11 +41,13 @@ $("loginForm").addEventListener("submit", async (e) => {
     $("loginMsg").textContent = "Login failed for " + email;
     return;
   }
-sessionStorage.setItem("uid", String(u.id));
-  const next = params.get("next");
-  if (next) { location.href = next; return; }
-  render();
-});
+const next = params.get("next");
+if (next) {
+    if (!next.startsWith("http") && !next.startsWith("//") && !next.startsWith("javascript")) {
+        location.href = next;
+        return;
+    }
+}
 
 $("resultForm").addEventListener("submit", (e) => { e.preventDefault(); showResult($("rid").value); });
 
