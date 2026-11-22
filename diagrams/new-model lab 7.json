@@ -1,0 +1,786 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "New ThreatUW Student Portal Model",
+    "owner": "Salika",
+    "description": "Data Flow Diagram for UW Student Portal Security Lab",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Iram Shehzadi"
+      },
+      {
+        "name": "Amina Rashid"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 2,
+        "title": "NewUW Student Portal DFD ",
+        "diagramType": "Generic",
+        "placeholder": "New generic diagram description",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": -40.0000000000025,
+              "y": -59.999999999995964
+            },
+            "size": {
+              "width": 820,
+              "height": 550
+            },
+            "attrs": {
+              "label": {
+                "text": "Visitor's Browser"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "de9487e8-a68e-475b-8d14-bd15adf7ec12",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Visitor's Browser",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "b4b4d197-e4a7-4e44-b8a7-d768588579af"
+              ],
+              "containedElements": [
+                "ab7e6113-ba16-4387-b669-bf6e00a4ab81",
+                "7df96cc3-fe3a-49a1-8a86-096b8b9e54a6",
+                "035419ee-7661-47e6-b8ac-67c2eaea6a55"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 886.9999999999977,
+              "y": -59.99999999999878
+            },
+            "size": {
+              "width": 330,
+              "height": 560
+            },
+            "attrs": {
+              "label": {
+                "text": "GitHub Pages Hosting"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "eb24b6af-ab20-44bc-8c48-80a16883f475",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "GitHub Pages Hosting",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "b4b4d197-e4a7-4e44-b8a7-d768588579af"
+              ],
+              "containedElements": [
+                "7b00efdb-3a96-4b25-903a-59a02fdb6add"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 20,
+              "y": 85
+            },
+            "size": {
+              "width": 240,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Visitor / Attacker"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "e139472b-1823-4bf2-aaba-7b57c33141bc"
+                },
+                {
+                  "group": "right",
+                  "id": "8d25dae5-4ec5-448b-a58e-d27b8822ed3c"
+                },
+                {
+                  "group": "bottom",
+                  "id": "5e3fe1aa-7a86-4a86-bd15-75ff4db5f246"
+                },
+                {
+                  "group": "left",
+                  "id": "fa9fa790-841a-4a38-8768-65d24eae5001"
+                }
+              ]
+            },
+            "id": "ab7e6113-ba16-4387-b669-bf6e00a4ab81",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Visitor / Attacker",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 440,
+              "y": 30
+            },
+            "size": {
+              "width": 260,
+              "height": 210
+            },
+            "attrs": {
+              "text": {
+                "text": "UW Student Portal "
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "c98224c1-b5d0-4d3e-b73c-cb7eee73d84b"
+                },
+                {
+                  "group": "right",
+                  "id": "292b6358-ee56-435c-aa0f-9f4fbd060061"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ebc390a4-52b0-4a1a-b94e-11e521ea1bf8"
+                },
+                {
+                  "group": "left",
+                  "id": "b9fa1d19-b9d5-4be9-a425-040548657ed2"
+                }
+              ]
+            },
+            "id": "7df96cc3-fe3a-49a1-8a86-096b8b9e54a6",
+            "zIndex": 4,
+            "data": {
+              "type": "tm.Process",
+              "name": "UW Student Portal ",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 900,
+              "y": 90
+            },
+            "size": {
+              "width": 260,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "Static Files From GitHub Pages"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "f9bf14c4-634c-4d96-8197-6b06371631ef"
+                },
+                {
+                  "group": "right",
+                  "id": "8d896008-9be2-4b30-a455-e32271c5d71a"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c825e415-eec8-4ccf-b265-27329dfb7252"
+                },
+                {
+                  "group": "left",
+                  "id": "0c7505fd-6abf-49af-967c-0b53292c3732"
+                }
+              ]
+            },
+            "id": "7b00efdb-3a96-4b25-903a-59a02fdb6add",
+            "zIndex": 7,
+            "data": {
+              "type": "tm.Store",
+              "name": "Static Files From GitHub Pages",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 380,
+              "y": 340
+            },
+            "size": {
+              "width": 380,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "Browser Storage "
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "f9bf14c4-634c-4d96-8197-6b06371631ef"
+                },
+                {
+                  "group": "right",
+                  "id": "8d896008-9be2-4b30-a455-e32271c5d71a"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c825e415-eec8-4ccf-b265-27329dfb7252"
+                },
+                {
+                  "group": "left",
+                  "id": "0c7505fd-6abf-49af-967c-0b53292c3732"
+                }
+              ]
+            },
+            "id": "035419ee-7661-47e6-b8ac-67c2eaea6a55",
+            "zIndex": 8,
+            "data": {
+              "type": "tm.Store",
+              "name": "Browser Storage ",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Rendered page",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Rendered page"
+            ],
+            "id": "835ad596-5942-4248-adb5-9ebae53f71d6",
+            "source": {
+              "cell": "7df96cc3-fe3a-49a1-8a86-096b8b9e54a6",
+              "port": "ebc390a4-52b0-4a1a-b94e-11e521ea1bf8"
+            },
+            "target": {
+              "cell": "ab7e6113-ba16-4387-b669-bf6e00a4ab81",
+              "port": "5e3fe1aa-7a86-4a86-bd15-75ff4db5f246"
+            },
+            "vertices": [
+              {
+                "x": 390,
+                "y": 220
+              },
+              {
+                "x": 350,
+                "y": 220
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Form input and\n URL parameters",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Form input and\n URL parameters"
+            ],
+            "id": "aede4bd9-0cdf-4cac-8fc6-baadbe054acf",
+            "source": {
+              "cell": "ab7e6113-ba16-4387-b669-bf6e00a4ab81",
+              "port": "e139472b-1823-4bf2-aaba-7b57c33141bc"
+            },
+            "target": {
+              "cell": "7df96cc3-fe3a-49a1-8a86-096b8b9e54a6",
+              "port": "c98224c1-b5d0-4d3e-b73c-cb7eee73d84b"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Session id to storage",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Session id to storage"
+            ],
+            "id": "a04398ac-ee69-4687-bfbd-4bdb8cf567d2",
+            "source": {
+              "cell": "7df96cc3-fe3a-49a1-8a86-096b8b9e54a6",
+              "port": "ebc390a4-52b0-4a1a-b94e-11e521ea1bf8"
+            },
+            "target": {
+              "cell": "035419ee-7661-47e6-b8ac-67c2eaea6a55",
+              "port": "f9bf14c4-634c-4d96-8197-6b06371631ef"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Code and data\n downloaded from\n GitHub Pages",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "de9487e8-a68e-475b-8d14-bd15adf7ec12",
+                "eb24b6af-ab20-44bc-8c48-80a16883f475"
+              ]
+            },
+            "labels": [
+              "Code and data\n downloaded from\n GitHub Pages"
+            ],
+            "id": "b4b4d197-e4a7-4e44-b8a7-d768588579af",
+            "source": {
+              "cell": "7b00efdb-3a96-4b25-903a-59a02fdb6add",
+              "port": "0c7505fd-6abf-49af-967c-0b53292c3732"
+            },
+            "target": {
+              "cell": "7df96cc3-fe3a-49a1-8a86-096b8b9e54a6",
+              "port": "292b6358-ee56-435c-aa0f-9f4fbd060061"
+            },
+            "vertices": []
+          }
+        ],
+        "description": "Data Flow Diagram showing data movement between the visitor, student portal, browser storage and GitHub Pages."
+      }
+    ],
+    "diagramTop": 5,
+    "reviewer": "Ms. Muniba Khan",
+    "threatTop": 0
+  }
+}
